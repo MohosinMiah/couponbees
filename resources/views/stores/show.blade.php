@@ -43,7 +43,7 @@
                 </div>
                 <div>
                     <h1 class="h3 fw-bold mb-1">{{ $store->name }} Coupon Codes</h1>
-                    <p class="text-muted mb-1 small">{{ $store->description }}</p>
+                    <p class="text-muted mb-1 small">{!! $store->description !!}</p>
                     <div class="d-flex flex-wrap gap-3 small">
                         <span class="text-muted"><i class="bi bi-tag me-1"></i>{{ $coupons->count() }} Coupons</span>
                         <span class="text-muted"><i class="bi bi-eye me-1"></i>{{ number_format($store->page_views) }}
@@ -313,7 +313,7 @@
 
                     <div class="card border shadow-sm">
                         <div class="card-header bg-white d-flex justify-content-between align-items-center">
-                            <h3 class="h6 fw-semibold mb-0"><i class="bi bi-list-ul me-1"></i>Activity Log</h3>
+                            <h3 class="h6 fw-semibold mb-0"><i class="bi bi-list-ul me-1"></i>{{ $store->name }} Coupons Activity Log</h3>
                             <span class="small text-muted">Most recent first</span>
                         </div>
                         <div class="table-responsive history-scroll">
@@ -415,19 +415,6 @@
                         <a href="{{ route($typeRoute) }}" class="btn btn-sm btn-outline-primary w-100">
                             View All {{ $typeLabel }} <i class="bi bi-arrow-right ms-1"></i>
                         </a>
-                    </div>
-                </div>
-
-                <div class="card border-0 bg-light shadow-sm">
-                    <div class="card-body">
-                        <h2 class="h6 fw-bold mb-3"><i class="bi bi-question-circle me-1 text-primary"></i>How to Use
-                            Coupons</h2>
-                        <ol class="ps-3 small text-muted mb-0">
-                            <li class="mb-2">Click <strong>"Copy Code"</strong> to copy the promo code.</li>
-                            <li class="mb-2">Visit <strong>{{ $store->name }}</strong> and add items to your cart.</li>
-                            <li class="mb-2">Paste the code at <strong>checkout</strong>.</li>
-                            <li>Tell us if it <strong>worked or not</strong> to help others!</li>
-                        </ol>
                     </div>
                 </div>
             </aside>

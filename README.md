@@ -11,7 +11,9 @@ php -r "unlink('composer-setup.php');"
 
 php composer.phar install
 
-
+## Admin
+Username: cb_admin_5ggx77
+Password: 8P%yVyQ*8ADMt4X7VpYf
 
 ## ⚡ Setup Steps
 

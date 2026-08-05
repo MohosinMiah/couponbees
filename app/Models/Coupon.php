@@ -11,7 +11,7 @@ class Coupon extends Model
 
     protected $fillable = [
         'store_id', 'title', 'code', 'description', 'type',
-        'discount_value', 'discount_type', 'expires_at',
+        'discount_value', 'discount_type', 'position', 'expires_at',
         'is_verified', 'is_exclusive', 'copy_count', 'success_count', 'failure_count',
     ];
 

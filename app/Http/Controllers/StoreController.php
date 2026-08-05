@@ -8,6 +8,7 @@ use App\Models\Store;
 use App\Models\CouponHistory;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Str;
 
 class StoreController extends Controller
 {
@@ -78,6 +79,7 @@ class StoreController extends Controller
         $store->increment('page_views');
 
         $coupons = $store->coupons()
+            ->orderBy('position')
             ->orderByDesc('is_exclusive')
             ->orderByDesc('is_verified')
             ->orderByDesc('created_at')
@@ -200,15 +202,15 @@ class StoreController extends Controller
             ->orderByDesc('is_popular')
             ->orderBy('name')
             ->limit(8)
-            ->get(['name', 'slug', 'logo', 'website']);
+            ->get(['name', 'slug', 'logo', 'description']);
 
         return response()->json($stores->map(function ($store) {
             return [
-                'name'    => $store->name,
-                'slug'    => $store->slug,
-                'website' => $store->website,
-                'logo'    => $store->logo ? asset($store->logo) : null,
-                'url'     => route('stores.show', $store->slug),
+                'name'        => $store->name,
+                'slug'        => $store->slug,
+                'description' => Str::limit(strip_tags($store->description ?? ''), 80),
+                'logo'        => $store->logo ? asset($store->logo) : null,
+                'url'         => route('stores.show', $store->slug),
             ];
         }));
     }

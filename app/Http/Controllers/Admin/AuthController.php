@@ -8,8 +8,8 @@ use Illuminate\Routing\Controller;
 class AuthController extends Controller
 {
     // Simple hardcoded credentials — change these!
-    private string $adminUser     = 'admin';
-    private string $adminPassword = 'admin123';
+    private string $adminUser     = 'cb_admin_5ggx77';
+    private string $adminPassword = '8P%yVyQ*8ADMt4X7VpYf';
 
     public function loginForm()
     {

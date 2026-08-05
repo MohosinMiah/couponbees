@@ -9,11 +9,6 @@
             .replace(/"/g, '&quot;');
     }
 
-    function cleanDomain(url) {
-        if (!url) return '';
-        return url.replace(/^https?:\/\/(www\.)?/i, '').replace(/\/$/, '');
-    }
-
     function initSearchWidget(wrap) {
         var input    = wrap.querySelector('.nav-search');
         var dropdown = wrap.querySelector('.search-dropdown');
@@ -45,14 +40,14 @@
             dropdown.innerHTML = items.map(function (store, i) {
                 var logo = store.logo
                     ? '<img src="' + escHtml(store.logo) + '" alt="" class="search-item-logo">'
-                    : '<span class="search-item-logo search-item-logo-fallback">' + escHtml(store.name.charAt(0)) + '</span>';
+                    : '<span class="search-item-logo search-item-logo-fallback">' + escHtml(store.name.substring(0, 2).toUpperCase()) + '</span>';
 
                 return '' +
                     '<a href="' + escHtml(store.url) + '" class="search-item" data-index="' + i + '">' +
                         logo +
                         '<span class="flex-grow-1 overflow-hidden">' +
                             '<span class="d-block fw-semibold small text-truncate">' + escHtml(store.name) + '</span>' +
-                            '<span class="d-block text-muted text-truncate" style="font-size:.72rem">' + escHtml(cleanDomain(store.website) || '/' + store.slug) + '</span>' +
+                            '<span class="d-block text-muted text-truncate" style="font-size:.72rem">' + escHtml(store.description || '/' + store.slug) + '</span>' +
                         '</span>' +
                         '<i class="bi bi-arrow-right-short text-muted"></i>' +
                     '</a>';
