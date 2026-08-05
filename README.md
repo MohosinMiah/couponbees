@@ -2,8 +2,16 @@
 
 Built with **Laravel 11**, **Bootstrap 5**, HTML & CSS.
 **Database: MySQL (`couponsite`)**
-
 ---
+
+## Git Setup
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+
+php composer.phar install
+
+
 
 ## ⚡ Setup Steps
 
