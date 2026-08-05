@@ -1,0 +1,35 @@
+# Laravel on cPanel shared hosting where the document root cannot be
+# changed to point directly at /public. Routes all requests into public/
+# and blocks direct access to app internals that would otherwise be
+# reachable under public_html.
+#
+# If you CAN set the domain's Document Root to the public/ folder in
+# cPanel > Domains, do that instead and delete this file — it's the
+# safer setup since app/, vendor/, and .env are never web-exposed at all.
+
+# Block direct access to sensitive files/folders
+<FilesMatch "^(\.env|composer\.(json|lock)|artisan|package\.json|package-lock\.json|webpack\.mix\.js|phpunit\.xml|README\.md)$">
+    Require all denied
+</FilesMatch>
+
+RewriteEngine On
+
+# Redirect any /public/* page request → /* (SEO: prevents duplicate content)
+# THE_REQUEST checks the original browser URL so static assets internally routed through
+# public/ are not affected; !-f / !-d guards skip real files/directories (css, js, images)
+RewriteCond %{THE_REQUEST} \s/+public/ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ /$1 [R=301,L]
+
+# Redirect Trailing Slashes If Not A Folder...
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^ %1 [L,R=301]
+
+# Deny direct access to app internals
+RewriteRule ^(app|bootstrap|config|database|resources|routes|storage|tests|vendor)/ - [F,L]
+
+# Everything else that isn't already under public/ gets served from there
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ public/$1 [L]
