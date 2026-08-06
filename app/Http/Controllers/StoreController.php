@@ -79,8 +79,8 @@ class StoreController extends Controller
         $store->increment('page_views');
 
         $coupons = $store->coupons()
-            ->orderBy('position')
             ->orderByDesc('is_exclusive')
+            ->orderBy('position')
             ->orderByDesc('is_verified')
             ->orderByDesc('created_at')
             ->get();

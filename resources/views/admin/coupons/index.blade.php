@@ -59,6 +59,7 @@
                     <th>Store</th>
                     <th>Code</th>
                     <th>Discount</th>
+                    <th>Position</th>
                     <th>Copies</th>
                     <th>Success Rate</th>
                     <th>Expires</th>
@@ -88,6 +89,7 @@
                         @endif
                     </td>
                     <td class="small">{{ $coupon->discount_label }}</td>
+                    <td class="small">{{ $coupon->position }}</td>
                     <td class="small fw-semibold">{{ number_format($coupon->copy_count) }}</td>
                     <td>
                         @php $total = $coupon->success_count + $coupon->failure_count; @endphp
@@ -142,7 +144,7 @@
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="9" class="text-center py-5 text-muted">
+                    <td colspan="10" class="text-center py-5 text-muted">
                         <i class="bi bi-ticket-perforated fs-2 d-block mb-2 opacity-50"></i>
                         No coupons found. <a href="{{ route('admin.coupons.create') }}">Add your first coupon</a>
                     </td>

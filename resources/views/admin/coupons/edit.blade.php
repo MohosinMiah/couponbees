@@ -98,6 +98,14 @@
                             <div class="form-text">Clear to remove expiry.</div>
                         </div>
 
+                        <div class="col-md-6">
+                            <label class="form-label">Position</label>
+                            <input type="number" name="position" class="form-control @error('position') is-invalid @enderror"
+                                   value="{{ old('position', $coupon->position) }}" min="0">
+                            @error('position')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                            <div class="form-text">Lower number shows first. Exclusive coupons always show first regardless of position.</div>
+                        </div>
+
                     </div>
                 </div>
             </div>

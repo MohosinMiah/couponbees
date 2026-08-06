@@ -55,11 +55,13 @@ class CouponController extends Controller
             'type'           => 'required|in:code,deal',
             'discount_value' => 'nullable|string|max:50',
             'discount_type'  => 'required|in:percentage,fixed,free_shipping,other',
+            'position'       => 'nullable|integer|min:0',
             'expires_at'     => 'nullable|date|after_or_equal:today',
             'is_verified'    => 'nullable|boolean',
             'is_exclusive'   => 'nullable|boolean',
         ]);
 
+        $data['position']     = $data['position'] ?? 100;
         $data['is_verified']  = $request->boolean('is_verified');
         $data['is_exclusive'] = $request->boolean('is_exclusive');
 
@@ -89,11 +91,13 @@ class CouponController extends Controller
             'type'           => 'required|in:code,deal',
             'discount_value' => 'nullable|string|max:50',
             'discount_type'  => 'required|in:percentage,fixed,free_shipping,other',
+            'position'       => 'nullable|integer|min:0',
             'expires_at'     => 'nullable|date',
             'is_verified'    => 'nullable|boolean',
             'is_exclusive'   => 'nullable|boolean',
         ]);
 
+        $data['position']     = $data['position'] ?? 100;
         $data['is_verified']  = $request->boolean('is_verified');
         $data['is_exclusive'] = $request->boolean('is_exclusive');
 
