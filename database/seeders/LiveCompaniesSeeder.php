@@ -65,6 +65,8 @@ class LiveCompaniesSeeder extends Seeder
         2257 => ['TX3 Funding', 'tx3funding.com', 'propfirm'],
         2258 => ['EBC', 'ebc.com', 'broker'],
         2259 => ['Ultima Markets', 'ultimamarkets.com', 'broker'],
+        2027 => ['iFunds', 'ifunds.io', 'propfirm'],
+        1696 => ['Think Capital', 'thinkcapital.com', 'propfirm'],
     ];
 
     /**
@@ -440,6 +442,18 @@ class LiveCompaniesSeeder extends Seeder
             ['Ultima Markets Voucher Code', 'deal', 'ZgYgu4a5', 'https://ultgo.com/la-com/ZgYgu4a5', '100', 2],
             ['Top Ultima Markets Discounts and Coupons', 'deal', 'ZgYgu4a5', 'https://ultgo.com/la-com/ZgYgu4a5', null, 3],
             ['Ultima Markets Coupons and Promo Deals', 'deal', 'ZgYgu4a5', 'https://ultgo.com/la-com/ZgYgu4a5', null, 4],
+        ],
+        2027 => [
+            ['5% Off Starter Plan ($5K)', 'code', 'PFA', 'https://ifunds.io?ref=0QoazFZ814J8eAEQ', '5', 1],
+            ['5% Off All Plans', 'code', 'CT5%', 'https://ifunds.io?ref=0QoazFZ814J8eAEQ', '5', 2],
+            ['10% Off Intern Plan ($2,500)', 'code', 'CT-INTERN', 'https://ifunds.io?ref=0QoazFZ814J8eAEQ', '10', 3],
+            ['10% Off Starter Plan ($5K)', 'code', 'CT5K', 'https://ifunds.io?ref=0QoazFZ814J8eAEQ', '10', 4],
+            ['10% Off Ambition Plan ($10K)', 'code', 'CT10K', 'https://ifunds.io?ref=0QoazFZ814J8eAEQ', '10', 5],
+            ['10% Bonus up to $1,000 on All Plans', 'code', 'CT-BONUS', 'https://ifunds.io?ref=0QoazFZ814J8eAEQ', '10', 7],
+        ],
+        1696 => [
+            ['25% Off Think Capital Coupon Code', 'code', 'PFASK', 'https://checkout.thinkcapital.com?apply-coupon=PFASK', '25', 1],
+            ['35% Off Think Capital', 'code', 'PFAJULY', 'https://checkout.thinkcapital.com?apply-coupon=PFAJULY', '35', 4],
         ],
     ];
 
